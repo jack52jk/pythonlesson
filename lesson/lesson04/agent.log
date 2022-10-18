@@ -1,0 +1,10 @@
+[2022-10-13 16:18:08,971] - [MainThread] - [fil.py-line:22][DEBUG] 123
+[2022-10-13 16:29:31,095] - [MainThread] - [fil.py-line:22][DEBUG] 123
+[2022-10-13 16:29:31,095] - [MainThread] - [fil.py-line:23][INFO] dfjek
+[2022-10-13 16:29:56,628] - [MainThread] - [fil.py-line:22][DEBUG] 123
+[2022-10-13 16:29:56,628] - [MainThread] - [fil.py-line:23][INFO] dfjek
+[2022-10-13 16:29:56,629] - [MainThread] - [fil.py-line:24][ERROR] error
+[2022-10-13 16:30:22,052] - [MainThread] - [fil.py-line:22][DEBUG] 123
+[2022-10-13 16:30:22,053] - [MainThread] - [fil.py-line:23][INFO] dfjek
+[2022-10-13 16:30:22,053] - [MainThread] - [fil.py-line:24][ERROR] error
+[2022-10-13 16:30:22,053] - [MainThread] - [fil.py-line:25][CRITICAL] critical

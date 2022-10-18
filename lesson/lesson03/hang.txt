@@ -1,0 +1,2 @@
+[["name", "age", "sex"], ["dkfj", 12, 1], ["dfkdjf", 33, 0]]
+{"name": 11, "age": 12}
