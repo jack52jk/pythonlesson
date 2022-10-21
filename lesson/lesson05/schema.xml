@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<!DOCTYPE mycat:schema SYSTEM "schema.dtd">
+<mycat:schema xmlns:mycat="http://io.mycat/">
+
+	<schema name="huaplus" checkSQLschema="false" sqlMaxLimit="1000000">
+	
+		<table name="mycat_sequence" primaryKey="name" type="global" dataNode="dn0" />
+
+		<!--全局表start-->
+        <table name="project_attribute" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="agent" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="project_harasslist_map" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="project_harasslist_log" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="city" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="campaign" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="data_package" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="project_type_network" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="communicate_result" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="personas_topten" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="project_agent_map" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="project_type" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="qc_report" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="qc_second_report" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="qc_business_report" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="custom_temp_now" primaryKey="ID" type="global" dataNode="dn$0-41" />
+                <table name="faq" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="record_temp_now" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="user_temp_now" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="user" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="user_project_map" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="project_extend_column" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="project_biz_map" primaryKey="ID" type="global" dataNode="dn$0-41" />
+                <table name="sync_event" primaryKey="ID" type="global" dataNode="dn$0-41" />		
+                <table name="b2i_report" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="extract_conditions" primaryKey="ID" type="global" dataNode="dn$0-41" />
+                <table name="channel_code_mintain" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="show_num_pool" primaryKey="ID" type="global" dataNode="dn$0-41" />
+                <table name="user_num_obtain" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="good_audio_recording" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="good_audio_agent_map" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="user_bind_task_map" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="record_perday" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="work_message" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="work_order" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="work_template" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="template_user_map" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="record_perhour" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="record_userrank" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="project_robot_template" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="project_sms_count" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<!--自增主键start-->
+                <table name="traffic_handling" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="admin" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="batch" autoIncrement="true" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="biz" primaryKey="ID" autoIncrement="false" type="global" dataNode="dn$0-41" />
+		<table name="project" primaryKey="ID" type="global" dataNode="dn$0-41" />
+                <table name="questionnaire_speech" primaryKey="ID"  type="global" dataNode="dn$0-41" />
+
+		<table name="project_2i" primaryKey="ID" autoIncrement="false" type="global" dataNode="dn$0-41" />
+		<table name="task" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="task_batch_map" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="personas_day" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="task_as" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="phone_maintain" primaryKey="ID" type="global" dataNode="dn$0-41" />
+<!-- <table name="link_record" primaryKey="ID" type="global" dataNode="dn$0-41" /> -->
+<table name="screen_link_record" primaryKey="ID" type="global" dataNode="dn$0-41" />
+<table name="sms_answer" primaryKey="ID" type="global" dataNode="dn$0-41" />
+<table name="sensitive_call_record" primaryKey="ID" type="global" dataNode="dn$0-41" />
+                
+		<table name="split_target" primaryKey="ID" type="global" dataNode="dn$0-41" />
+                <table name="announcement" primaryKey="ID" type="global" dataNode="dn$0-41" />
+                <table name="ask_question" primaryKey="ID" type="global" dataNode="dn$0-41" />
+                <table name="message" primaryKey="ID" type="global" dataNode="dn$0-41" />
+                <table name="transfer_call" primaryKey="ID" type="global" dataNode="dn$0-41" />
+		<table name="complaint_call_back" primaryKey="ID" type="global" dataNode="dn$0-41" />
+                <table name="complaint_project_record" primaryKey="ID" type="global" dataNode="dn$0-41" />
+                <table name="question_result" primaryKey="ID" type="global" dataNode="dn$0-41" />
+<table name="success_rate_assign" primaryKey="ID" type="global" dataNode="dn0" />
+<table name="custom_forecast" primaryKey="ID" dataNode="dn$0-41" rule="sharding-by-month"> </table>
+<table name="custom_temporary" primaryKey="ID" dataNode="dn$0-41" rule="sharding-by-month"> </table>
+                <!--自增主键end-->
+		<!--全局表end-->
+		
+		<!--分片表start-->
+		
+                <table name="custom" primaryKey="ID" dataNode="dn$0-41" rule="sharding-by-month">
+                        <childTable name="quantity_call_status"  joinKey="cid" parentKey="id"/>
+                </table>
+		
+                <table name="project_record"  primaryKey="ID"    dataNode="dn$0-41" rule="sharding-by-month">
+                        <childTable name="quantity_order_status"  joinKey="record_id" parentKey="id"/>
+                </table>
+                <table name="orders"  primaryKey="ID"  dataNode="dn$0-41" rule="sharding-by-month1"/>
+                <table name="project_record_ai_qc"  primaryKey="ID"  dataNode="dn$0-41" rule="sharding-by-month"/>
+<table name="other_call_record"  primaryKey="ID"    dataNode="dn$0-41" rule="sharding-by-month"> </table>
+		
+		<!-- <table name="project_record"  primaryKey="ID"  dataNode="dn$1-9" rule="sharding-by-month"/>
+		<table name="orders"  primaryKey="ID"  autoIncrement="false"  dataNode="dn$1-9" rule="sharding-by-month1"/> -->
+		<!--分片表end-->
+
+<table name="user_success_count" primaryKey="ID"  type="global" dataNode="dn0" />
+<table name="custom_split" primaryKey="ID" type="global" dataNode="dn0" />
+<table name="split_task_target" primaryKey="ID" type="global" dataNode="dn0" />
+<table name="project_record_audit" primaryKey="ID"  type="global" dataNode="dn0" />
+
+		 <table name="multitype_blacklist" primaryKey="ID" type="global" dataNode="dn0" />
+                 <table name="project_blacklist_map" primaryKey="ID" type="global" dataNode="dn0" />
+                 <table name="guage_statistics" primaryKey="ID" type="global" dataNode="dn0" />
+                 <table name="filter_free_harass" primaryKey="ID" type="global" dataNode="dn0" />
+                 <table name="split_task_config" primaryKey="ID" type="global" dataNode="dn0" />
+                
+                <table name="give_net_export" primaryKey="ID" type="global" dataNode="dn0" />
+                <table name="utils_task" primaryKey="ID" type="global" dataNode="dn0" />
+                <table name="blacklist_type_map" primaryKey="ID" type="global" dataNode="dn0" />
+                <table name="import_sms_record" primaryKey="ID" type="global" dataNode="dn0" />
+                <table name="sms_fail_record" primaryKey="ID" type="global" dataNode="dn0" />
+
+<table name="split_overflow_target" primaryKey="ID"  type="global" dataNode="dn0" />
+<table name="split_saturation_target" primaryKey="ID"  type="global" dataNode="dn0" />
+<table name="split_task_template" primaryKey="ID"  type="global" dataNode="dn0" />
+<table name="user_project_duration" primaryKey="ID"  type="global" dataNode="dn0" />
+<table name="split_variable_record" primaryKey="ID"  type="global" dataNode="dn0" />
+<table name="agent_type" primaryKey="ID"  type="global" dataNode="dn0" />
+<table name="task_screen_gear" primaryKey="ID"  type="global" dataNode="dn0" />
+<table name="task_screen_variable" primaryKey="ID"  type="global" dataNode="dn0" />
+
+
+<table name="harasslist_record" primaryKey="ID" type="global" dataNode="dn0" />
+                <table name="report_header" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="user_report_header_map" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="blacklist" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="harasslist" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="import_fail_record" primaryKey="ID" type="global"  dataNode="dn0" />
+		<table name="import_fail_record_history" primaryKey="ID" type="global"  dataNode="dn0" />
+		<table name="robot_call_ctime" primaryKey="ID" type="global"  dataNode="dn0" />	
+	         <table name="group_accessnum" primaryKey="ID" type="global"  dataNode="dn0" />	
+		<table name="good_recording" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="admin_authority" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="admin_isaudit" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="admin_log" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="admin_projecttype_map" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="admin_role" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="admin_role_authority_map" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="admin_role_map" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="agent_accessnum" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="agent_city_map" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="agent_outnum" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="agent_skill_map" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="authorization" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="background_task" primaryKey="ID" type="global" dataNode="dn0" />
+		<table name="biz_phone" primaryKey="ID" type="global" dataNode="dn0" />
+
+
+
+
+	</schema>
+	
+        <dataNode name="dn0" dataHost="host1" database="db0" />
+        <dataNode name="dn2" dataHost="host1" database="db2" />
+
+
+
+        <dataHost name="host1" maxCon="3000" minCon="600" balance="2"
+                          writeType="0" dbType="mysql" dbDriver="native" switchType="2"  slaveThreshold="50">
+                <heartbeat>select user()</heartbeat>
+                <!-- can have multi write hosts -->
+                <writeHost host="hostM1" url="127.0.0.1:3306" user="huaplus" password="Hangdong@3008" usingDecrypt="0">
+                <!--    <readHost host="hostS1" url="172.100.105.33:3306" user="huaplus" password="JcgKZ8Xmh2RQd3qzc+Mpv1M+PeyKkDBF4c0w8TuWZXvUYm68mOFaluiVHoYaujQG+Dxd2PfVwRTALkrOlF+hPg=="  usingDecrypt="1"/ >   -->
+                </writeHost>
+        </dataHost>
+
+ 
+
+</mycat:schema>
