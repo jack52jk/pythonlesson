@@ -1,0 +1,34 @@
+{% load static %}
+  <html lang="en" class="" style="height: auto;">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}base{% endblock %}</title>
+
+  <link rel="stylesheet" href="/static/adminlte3_20/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/static/adminlte3_20/dist/css/adminlte.min.css">
+</head>
+
+<body>
+<div class="wrapper">
+  <div class="content-wrapper">
+    <section class="content-header">
+      {% block breadcrumb %}
+      {% endblock %}
+    </section>
+
+    <section class="content">
+      {% block content %}
+      {% endblock %}
+    </section>
+  </div>
+
+</div>
+
+    <script src="/static/adminlte3_20/plugins/jquery/jquery.min.js"></script>
+    <script src="/static/adminlte3_20/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/adminlte3_20/dist/js/adminlte.min.js"></script>
+</body>
+
+</html>
