@@ -25,7 +25,10 @@ class Assets(models.Model):
     create_time=models.DateTimeField(auto_now_add=True,verbose_name="创建时间")
     update_time = models.DateTimeField(auto_now=True,verbose_name="更新时间")
 
+    def __str__(self):
+        return self.hostname
     class Meta:
         db_table = "assets"
         verbose_name="资产"
         verbose_name_plural=verbose_name
+

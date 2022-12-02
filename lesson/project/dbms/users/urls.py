@@ -18,5 +18,9 @@ urlpatterns = [
 
    #用户管理的遍历界面 list
    path("list/",views.UserView.as_view(),name='list'),
+
+   #用户管理的遍历界面 add
+   path("add/",views.AddView.as_view(),name='add'),
+   path("addsave/",views.AddSaveView.as_view(),name='addSaveView'),
 ]
 

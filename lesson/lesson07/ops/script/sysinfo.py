@@ -8,7 +8,7 @@ import subprocess
 import json
 import requests
 
-sysinfo={}
+
 
 #get hostname
 def gethostname():
@@ -82,9 +82,14 @@ def getSystemInfo():
     isok,res=subprocess.getstatusoutput(cmd)
     print(isok,res)
 
-def dataProcess():
+def run():
+    sysinfo={}
+
+    privateip=''
+    macaddr=''
     hostname=gethostname()
-    cpucount=getCPUcount()
+    cpucount=int(getCPUcount())
+    print("*****************cpucount {} {}".format(cpucount,type(cpucount)))
     disksize=getDiskInfo()
     manufacturer="华为"
     servertype="虚拟机"
@@ -100,21 +105,33 @@ def dataProcess():
         privateip='0.0.0.0'
         macaddr='aaaa-aaaa-aaaa-aaaa'
     
-    # sysinfo['hostname']=hostname
-    # sysinfo['privateip']=privateip
-    # sysinfo['macaddr']=macaddr
-    sysinfo={
-        'hostname':hostname,'CPU':cpucount,'disksize':disksize,'manufacturer':manufacturer,
-         'servertype':servertype,'SerialNumber':SerialNumber,'uuid':uuid,'productdata':productdate,
-         'os':os
-        }
+    sysinfo['hostname']=hostname
+    sysinfo['private_ip']=privateip
+    sysinfo['mac_address']=macaddr
+    sysinfo['cpu']=cpucount
+    sysinfo['vm_status'] = 0
+    sysinfo['disk']=disksize
+    sysinfo['manufacturers'] = manufacturer
+    sysinfo['server_type']=servertype
+    sysinfo['st'] = SerialNumber
+    sysinfo['uuid']=uuid
+    sysinfo['manufacturer_date'] = productdate
+    sysinfo['os']=os
+    sysinfo['vm_status'] = 0
+    # sysinfo={
+    #     'hostname':hostname,'private_ip':privateip,'mac_address':macaddr,# 'cpu':cpucount,
+    #      'disk':disksize,
+    #      'manufacturers':manufacturer,
+    #      'server_type':servertype,'st':SerialNumber,'uuid':uuid,'manufacturer_date':productdate,
+    #      'os':os, #'vm_status':0
+    #     }
     print(json.dumps(sysinfo,indent=4))
     switchinfo(sysinfo)
     #return sysinfo
 def switchinfo(data):
-    url1 = "http://127.0.0.1:8000/api/v1/cmdb/collect"
-    #dataProcess()
-    req=requests.post(url=url1,json=data)
+    url = "http://127.0.0.1:8000/api/v1/cmdb/collect"
+    #print("data is  {},{}".format(data,type(data)))
+    req=requests.post(url,data=data)
     print(req.ok)
     print(req.text)
     
@@ -137,4 +154,4 @@ def switchinfo(data):
 
 
 if __name__ == '__main__':
-    dataProcess()
+    run()

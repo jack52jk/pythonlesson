@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资产系统</title>
+</head>
+<body>
+    <center>
+    <h1 style="background-color: burlywood;">资产系统 </h1>
+    <hr>
+    <table border="1" style="height: 100px;" >
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>id</th>
+                    <th>主机名</th>
+                    <th>内网IP</th>
+                    <th>Mac地址</th>
+                    <th>CPU</th>
+                    <th>磁盘</th>
+                    <th>制造商</th>
+                    <th>服务器类型</th>
+                    <!-- <th>序列号</th>
+                    <th>UUID</th> -->
+                    <th>生产日期</th>
+                    <th>操作系统</th>
+                    <th>服务器状态</th>
+                    <th>创建时间</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for obj in context %}
+                <tr>
+                    
+                    <td>{{ forloop.counter }}</td>
+                   <td>{{ obj.id }}</td>
+                    <td>{{ obj.hostname }}</td>
+                   <td>{{ obj.private_ip }}</td>
+                   <td>{{ obj.mac_address }}</td>
+                   <td>{{ obj.cpu }}</td>
+                   <td>{{ obj.disk }}</td>
+                   <td>{{ obj.manufacturers }}</td>
+                   <td>{{ obj.server_type }}</td>
+                   <!-- <td>{{ obj.st }}</td>
+                   <td>{{ obj.uuid }}</td> -->
+                   <td>{{ obj.manufacturer_date }}</td>
+                   <td>{{ obj.os }}</td>
+                   <td>{{ obj.vm_status }}</td>
+                   <td>{{ obj.create_time }}</td>
+                   <td>{{ obj.update_time }}</td>
+                   <td>
+                      <button>修改</button>
+                      <button><a href="/api/v1/cmdb/delete/{{ obj.id }}/">  删除  </a></button>
+                    </td>
+                      
+                   
+                </tr>
+                {% endfor %}
+            </tbody>
+
+    </table>
+    <!-- {{context}} -->
+</center>
+</body>
+</html>

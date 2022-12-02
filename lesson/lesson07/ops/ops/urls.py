@@ -14,11 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path,include,re_path
 
 
 from api.views import helloView,sumView,CommandView,LoginShowView,LoginView,LoginAuthView
-from assets.views import CollectHostInfo
+from assets.views import CollectHostInfo,AssetViews,CmdbView,CmdbDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,7 +34,17 @@ urlpatterns = [
     path('api/sum/',sumView),
     #api/command/?args=df
     path('api/command/',CommandView),
-    path('api/v1/cmdb/collect',CollectHostInfo.as_view())
+    re_path('api/v1/cmdb$',CmdbView.as_view(),name="cmdb_list"),
+    re_path(r'^api/v1/cmdb/delete/(?P<pk>[0-9]+)/$',CmdbDeleteView),
+    path('api/v1/cmdb/collect',CollectHostInfo.as_view()),
+     
+     #args的参数传递  位置参数即元组
+    #re_path(r'assets/2019/',AssetViews),
+    #re_path(r'^assets/([0-9]{4})/',AssetViews),
+    #re_path(r'^assets/([0-9]{4})/([0-9]{2})/([0-9]+)/',AssetViews),
+
+    #kwargs的参数传递  关键字参数即字典类型
+    re_path(r'^assets/(?P<year>[0-9]{4})/$', AssetViews)
     
 
 ]

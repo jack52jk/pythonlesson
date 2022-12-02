@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.views import View
 from django.contrib.auth import login,logout,authenticate
 from django.http import HttpResponse,HttpRequest, HttpResponseRedirect, QueryDict
-
+from users import models
 # Create your views here.
 
 # class UsersViews(View):
@@ -53,4 +53,26 @@ class Index(View):
 
 class UserView(View):
     def get(self,request:HttpRequest):
-        return render(request,'users/list.html')
+        user=models.User.objects.all()
+        users = {"users":user}
+       # print("user is {}".format(users))
+        return render(request,'users/list.html',users)
+
+class AddView(View):
+      def get(self,request:HttpRequest):
+        return render(request,'users/add.html')
+    
+      def post(self,request:HttpRequest):
+        print("add save {} {}".format(self.post ,request.body))
+        username = QueryDict(request.body).dict().get('username')
+        password = QueryDict(request.body).dict().get('password')
+        age      = QueryDict(request.body).dict().get('age')
+        print("username {} password {} age {}".format(username,password,age))
+        models.User.save()
+        return HttpResponseRedirect(reverse("users:add"))
+
+class AddSaveView(View):
+      def post(self,request:HttpRequest):
+        print("add save {} {}".format(self.post ,request.body))
+
+        return HttpResponseRedirect(reverse("users:list"))

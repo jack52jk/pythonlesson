@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>  {# 接收视图中的一般变量值 #}
+</head>
+<body>
+
+
+    {# 接收字典中定义的一个值 #}
+    <div color="blue"> hello my name is {{ people.name }} 
+        my age is {{ people.age }} and i am {{ people.sex }}</br>
+
+    </div>
+    列表变量
+    <li>{{ books.0 }}</li>  {# 接收列表的第一个值 #}
+    <li>{{ books.1 }}</li>
+    <li>{{ books.2 }}</li>
+    <li>{{ books.3 }}</li>
+
+    if 标签使用
+    {# if 标签使用 判断user是否存在 #}
+
+    {% if people %}
+    <li>name : {{ people.name }}</li>
+    {% else %}
+        用户不存在
+    {% endif %}
+    for 标签遍历列表
+    {# for 循环标签,渲染book列表 #}
+    {% for book in books %}
+    <li> {{ book }}</li>
+    {% endfor %}
+
+    for 标签遍历字典
+    {# for 循环输出字典里所有的key ,value #}
+    <form>
+    {% for k,v in people.items %}
+        <tr><li> {{ k }} ---> {{ v }}</li> </tr>
+    {% endfor %}
+    </form>
+</body>
+</html>

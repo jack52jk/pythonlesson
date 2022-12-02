@@ -1,8 +1,4 @@
-
-
-
 import pymysql
-
 
 def connect():
     try:
@@ -11,7 +7,7 @@ def connect():
             user='yanfa',
             password='yanfa',
             port=13301,
-            database='test'
+            database='dbms'
         )
     except Exception as e:
         return None
@@ -35,8 +31,22 @@ def insert(sql):
 def update():
     pass
 
-def select():
-    pass
+def select(sql):
+    conn = connect()
+    with conn.cursor() as cursor:
+        try:
+            cursor.execute(sql)
+        except Exception as e:
+            return 'execute sql Exception:{}'.format(e),False
+        data = cursor.fetchall()
+        rowcount= cursor.rowcount
+        if rowcount == 0:
+            print("NO data in sql")
+            return None,False
+        else:
+            conn.close()
+            return data,True
+        print(cursor.rowcount,data)
 
 def delete(sql):
     conn = connect()
@@ -60,16 +70,19 @@ def delete(sql):
 
 
 def main():
-    # for i in range(10,30):   
-    #      sql = '''insert into users(username,age,tel,email) values('kk{}',{},'133xxx','kk1@163.com');'''.format(i,i)
-    #      insertMsg,ok = insert(sql)
-    #      if not ok:
-    #          print(insertMsg) 
+    for i in range(10,30):   
+         sql = '''insert into user(username,password,age) values('kk{}','pwd{}',{});'''.format(i,i,i)
+         insertMsg,ok = insert(sql)
+         if not ok:
+             print(insertMsg) 
 
-        sql = '''delete from users where username="kk10";'''
-        deleteMsg,ok = delete(sql)
-        if not ok:
-            print(deleteMsg)
+        # sql = '''select time,INFO from information_Schema.PROCESSLIST where command='query' and time>60;'''
+        # deleteMsg,ok = select(sql)
+        # if not ok:
+        #     print(deleteMsg)
+        # print(deleteMsg,type(deleteMsg))
+        # print("sql is {}".format(deleteMsg[0][1]))
+      
 
 if __name__ == '__main__':
     main()
