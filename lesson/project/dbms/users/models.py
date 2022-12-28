@@ -13,3 +13,5 @@ class User(models.Model):
         indexes = [
             models.Index(fields=['username'],name='idx_name'),
         ]
+    # def save(self):
+    #     print(self)

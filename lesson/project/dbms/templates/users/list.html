@@ -189,26 +189,34 @@
                     <td>{{ user.username }}</td>
                     <td>{{ user.password }}</td>
                     <td>{{ user.age }}</td>
-                    <td>1.6</td>
+                    <td>{{user.id}}</td>
                     <td class="project-actions text-left">
-                      <a class="btn btn-primary btn-sm" href="#">
+                      <a class="btn btn-primary btn-sm" href="{% url 'users:detailView' %}?id={{user.id}}">
                           <i class="fas fa-folder">
                           </i>
                           View
                       </a>
-                      <a class="btn btn-info btn-sm" href="#">
+                      <a class="btn btn-info btn-sm" href="{% url 'users:editView' %}?id={{user.id}}">
                           <i class="fas fa-pencil-alt">
                           </i>
                           Edit
                       </a>
-                      <a class="btn btn-danger btn-sm" href="#">
-                          <i class="fas fa-trash">
-                          </i>
-                          Delete
-                      </a>
+                      
+                      <a class="btn btn-danger btn-sm" href="{% url 'users:deletebyidView' %}?id={{user.id }}" onclick="return deleteInfo()">
+                        <i class="fas fa-trash">
+                        </i>
+                        Del
+                    </a>
+
                   </td>
                   </tr>
                   {% endfor %}
+
+
+
+               
+  
+
                   </tbody>
                   <tfoot>
                   <tr>
@@ -220,6 +228,10 @@
                   </tr>
                   </tfoot>
                 </table>
+
+ 
+
+
               </div>
               <!-- /.card-body -->
             </div>
@@ -250,6 +262,16 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+
+
+
+
+
+
+
+
+
+
 
 <!-- jQuery -->
 <script src="/static/adminlte3_20/plugins/jquery/jquery.min.js"></script>
@@ -286,6 +308,21 @@
       "button":["add"]
     }).buttons().container().appendTo('#example2_wrapper .col-md-6:eq(1)');
   });
+
+
+
+
+function deleteInfo(){
+  const r = confirm("是否删除？")
+  if (r == false){
+    event.preventDefault();
+    return false
+  }else{
+    alert("删除成功")
+    return true
+  }
+}
+ 
 </script>
 </body>
 </html>

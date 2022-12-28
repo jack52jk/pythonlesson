@@ -58,6 +58,63 @@ class UserView(View):
        # print("user is {}".format(users))
         return render(request,'users/list.html',users)
 
+#获取用户详细信息
+    def getView(request:HttpRequest):
+        print("request is {}".format(request))
+        uid = int(request.GET.get("id"))
+        
+        udetail = models.User.objects.filter(id=uid)
+         #print("udetail is {}, {} ".format(udetail,udetail[0].username))
+        #print("user is {}".format(user))
+        users = {"users":udetail}
+        return render(request,'users/detail.html',users)
+
+#获取用户详细信息
+    def editView(request:HttpRequest):
+        print("request is {}".format(request))
+        uid = int(request.GET.get("id"))
+        
+        udetail = models.User.objects.filter(id=uid)
+         #print("udetail is {}, {} ".format(udetail,udetail[0].username))
+        #print("user is {}".format(user))
+        users = {"users":udetail}
+        return render(request,'users/edit.html',users)
+    #保存修改得信息
+    def editSaveView(request:HttpRequest):
+        print("request is {}  body {}".format(request,request.body))
+        id = int(QueryDict(request.body).dict().get('id'))
+        username = QueryDict(request.body).dict().get('username')
+        password = QueryDict(request.body).dict().get('password')
+        age = QueryDict(request.body).dict().get('age')
+        
+        userobject = models.User.objects.filter(id=id)
+        #userobject[0].username=username
+        # userobject[0].password = password
+        # userobject[0].age  = age
+        userobject.update(username=username,password=password,age=age) 
+        print("id,uname,passwd {},{},{}".format(id,userobject[0].username,username))
+        
+        
+        # sql = "update user set username={},password={},age={} where id={};".format(username,password,age,id)
+        # models.User.objects.raw(sql)
+        return HttpResponseRedirect(reverse("users:list"))
+    
+    #删除用户信息
+    def deleteById(request:HttpRequest):
+        id = int(request.GET.get("id"))
+        print("id is {},{}".format(id,type(id)))
+        delobject=models.User.objects.filter(id=id)
+        res=delobject.delete()
+        print(res)
+        return HttpResponseRedirect(reverse("users:list"))
+
+
+
+
+
+
+
+
 class AddView(View):
       def get(self,request:HttpRequest):
         return render(request,'users/add.html')
@@ -74,5 +131,11 @@ class AddView(View):
 class AddSaveView(View):
       def post(self,request:HttpRequest):
         print("add save {} {}".format(self.post ,request.body))
-
-        return HttpResponseRedirect(reverse("users:list"))
+        username = QueryDict(request.body).dict().get('username')
+        password = QueryDict(request.body).dict().get('password')
+        age      = QueryDict(request.body).dict().get('age')
+        print("username : {} ,password :{} ,age :{}".format(username,password,age))
+        u = models.User(username=username,password=password,age=age)
+        u.save()
+        print(u)
+        return HttpResponseRedirect(reverse("users:add"))
